@@ -1,7 +1,7 @@
 /* 
 * prints out a simple minesweeper game that can be pasted into disord to play.
-* @author 
-* @version 20200903
+* @author jackson
+*
 */
 
   //import java.util.Arrays;  // for the test array printing method 
