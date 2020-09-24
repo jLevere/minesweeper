@@ -5,7 +5,7 @@
 */
 
   //import java.util.Arrays;  // for the test array printing method 
-class Func extends Main {
+class Func {
 
   final String start = "||";
   final String stop = "||";
@@ -43,13 +43,13 @@ class Func extends Main {
 
     public String[][] boom(int numBoom, String[][] board) {  // randomly places mines in the matrix.  The number of which is passed to it
 
-        this.x = board.length;
-        this.y = board[0].length;
+        int x = board.length;
+        int y = board[0].length;
         int count = 0;
 
         //picks random entries and puts boom in until it has reached the number passed
        while (count < numBoom) {
-          board[rand(this.x -1)][rand(this.y -1)] = boom;
+          board[rand(x -1)][rand(y -1)] = boom;
           count++;
           }
 
@@ -59,8 +59,8 @@ class Func extends Main {
       public String[][] fillBoard(String[][] board) {
        
         //fills the board with the letter 's' as a space filler to make reading it easier
-        for (x = 0; x < board.length; x++) {
-          for (y = 0; y < board[x].length; y++) {
+        for (int x = 0; x < board.length; x++) {
+          for (int y = 0; y < board[x].length; y++) {
               board [x][y] = "s";
           }
         }
@@ -75,11 +75,11 @@ class Func extends Main {
         }  */
 
         //pulls enteries out of matrix and concats into strings representing each line
-        for (this.y = 0; this.y < board[0].length; this.y++) { // walks through the rows
+        for (int y = 0; y < board[0].length; y++) { // walks through the rows
           String row = "";
 
-          for (this.x = 0; this.x < board.length; this.x++) { // steps through each entry in row
-            row += start + board[this.x][this.y] + stop ;     // concats and adds the pipes for the spoiler 
+          for (int x = 0; x < board.length; x++) { // steps through each entry in row
+            row += start + board[x][y] + stop ;     // concats and adds the pipes for the spoiler 
           }
           
           System.out.println(row); // prints each line out after being concated
@@ -104,54 +104,54 @@ class Func extends Main {
 
    public String[][] entryFinal(String[][] board) {
     //finds the size of the matrix
-    this.x = board.length;
-    this.y = board[0].length;
+    int x = board.length;
+    int y = board[0].length;
     
     //iterator  (it goes top to bottom on each x before advancing, need to change that sometime)
-    for (this.x = 0; this.x < board.length; this.x++) {
-      for (this.y = 0; this.y < board[this.x].length; this.y++) {
+    for (x = 0; x < board.length; x++) {
+      for (y = 0; y < board[x].length; y++) {
 
         //checks to see if current entry is boom or not
-        if (!(board[this.x][this.y]).equals(boom)) {
+        if (!(board[x][y]).equals(boom)) {
           int count = 0;
 
           //check if the tile above or below is the boom
-          if (this.y > 0){ //makes sure its not going to call out of bounds
-            if ((board[this.x][this.y-1]).equals(boom)) count++;} 
+          if (y > 0){ //makes sure its not going to call out of bounds
+            if ((board[x][y-1]).equals(boom)) count++;} 
 
-          if (this.y < board[0].length -1) {
-            if ((board[this.x][this.y+1]).equals(boom)) count++;} 
+          if (y < board[0].length -1) {
+            if ((board[x][y+1]).equals(boom)) count++;} 
             
           //----------------------------------------------------------
 
             //checks if the tiles right or left are the boom
-            if (this.x < board.length -1) {
-              if ((board[this.x+1][this.y]).equals(boom)) count++;}
+            if (x < board.length -1) {
+              if ((board[x+1][y]).equals(boom)) count++;}
             
-            if (this.x > 0) {
-              if ((board[this.x-1][this.y]).equals(boom)) count++;}
+            if (x > 0) {
+              if ((board[x-1][y]).equals(boom)) count++;}
 
           //----------------------------------------------------------
               
               // check if its on diaginals
 
               //bottom left and right
-            if (this.x > 0 && this.y < board[0].length -1 ) {
-              if ((board[this.x -1][this.y +1].equals(boom))) {count++;}}
+            if (x > 0 && y < board[0].length -1 ) {
+              if ((board[x -1][y +1].equals(boom))) {count++;}}
 
-            if (this.y < board[0].length -1 && this.x < board.length -1) {
-              if ((board[this.x +1][this.y +1]).equals(boom)) {count++;}}
+            if (y < board[0].length -1 && x < board.length -1) {
+              if ((board[x +1][y +1]).equals(boom)) {count++;}}
 
               //top left and right
 
-            if (this.y > 0 && this.x > 0 ) {
-              if ((board[this.x -1][this.y -1].equals(boom))) {count++;}}
+            if (y > 0 && x > 0 ) {
+              if ((board[x -1][y -1].equals(boom))) {count++;}}
 
-            if (this.x < board.length -1 && this.y > 0 ) {
-              if ((board[this.x +1][this.y -1].equals(boom))) {count++;}}
+            if (x < board.length -1 && y > 0 ) {
+              if ((board[x +1][y -1].equals(boom))) {count++;}}
 
           //sets the current tile to the apropreate number emoji based on the counter of boombs seen
-          board[this.x][this.y] = entry(count);
+          board[x][y] = entry(count);
         }
 
       }
