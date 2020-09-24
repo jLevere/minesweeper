@@ -32,7 +32,9 @@ public class Main {
 
         // check if too big for discord message (maybe put this invalidation loop, with more error messages so user can re-enter)
         if (x * y > 250) {
-          System.out.println("\n !!!too big for discord!!! \n");
+          System.out.println();
+          System.out.println(" !!!too big for discord!!! ");
+          System.out.println();
         }
         
         
