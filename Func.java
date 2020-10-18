@@ -1,10 +1,10 @@
-/* 
+/**
 * prints out a simple minesweeper game that can be pasted into disord to play.
-* @author jackson
+* @author 
 *
 */
 
-  //import java.util.Arrays;  // for the test array printing method 
+//import java.util.Arrays;  // for the test array printing method 
 class Func {
 
   final String start = "||";
@@ -18,8 +18,8 @@ class Func {
   final String six = ":six:";
   final String boom = ":boom:";
 
-  
-      public String entry(int count) {   // selects the emoji to put in a tile based on an integer parameter passed
+      /** selects the emoji to put in a tile based on an integer parameter passed */
+      public String entry(int count) {
 
       switch (count) {
         case 0: 
@@ -41,7 +41,8 @@ class Func {
         }
       } 
 
-    public String[][] boom(int numBoom, String[][] board) {  // randomly places mines in the matrix.  The number of which is passed to it
+      /** randomly places mines in the matrix.  The number of which is passed to it */
+    public String[][] boom(int numBoom, String[][] board) {  
 
         int x = board.length;
         int y = board[0].length;
@@ -56,9 +57,9 @@ class Func {
           return board;
       }
 
+      /**fills the board with the letter 's' as a space filler to make reading it easier */
       public String[][] fillBoard(String[][] board) {
        
-        //fills the board with the letter 's' as a space filler to make reading it easier
         for (int x = 0; x < board.length; x++) {
           for (int y = 0; y < board[x].length; y++) {
               board [x][y] = "s";
@@ -67,6 +68,7 @@ class Func {
         return board;
     }
 
+    /**pulls enteries out of matrix and concats into strings representing each line */
      public void print(String[][] board) {
       
       /*/debuging, prints the matrix one row at the time (dont forget to uncomment the inport for arrays on line 8)
@@ -74,7 +76,6 @@ class Func {
           System.out.println(Arrays.toString(row)); 
         }  */
 
-        //pulls enteries out of matrix and concats into strings representing each line
         for (int y = 0; y < board[0].length; y++) { // walks through the rows
           String row = "";
 
@@ -89,7 +90,8 @@ class Func {
         
   }
 
-  public int rand(int maxR) {      //generates random number that is less than or equal to the input. 
+  /**generates random number that is less than or equal to the input. */
+  public int rand(int maxR) { 
     int rand = 1000;
     //int count = 0;
     while (rand > maxR) { 
@@ -102,6 +104,8 @@ class Func {
     return rand;
    }
 
+
+   /** makes the final board, selecting which number goes in each tile based of the booms */
    public String[][] entryFinal(String[][] board) {
     //finds the size of the matrix
     int x = board.length;
@@ -150,7 +154,8 @@ class Func {
             if (x < board.length -1 && y > 0 ) {
               if ((board[x +1][y -1].equals(boom))) {count++;}}
 
-          //sets the current tile to the apropreate number emoji based on the counter of boombs seen
+              
+          /** sets the current tile to the apropreate number emoji based on the counter of boombs seen */
           board[x][y] = entry(count);
         }
 

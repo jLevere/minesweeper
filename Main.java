@@ -1,6 +1,6 @@
-/* 
+/**
 * prints out a simple minesweeper game that can be pasted into disord to play.
-* @author jackson
+* @author
 * 
 */
 
