@@ -14,7 +14,7 @@ public class Main {
     // constructors and variables
     Func tools = new Func();
     Scanner input = new Scanner(System.in);
-    
+
     int x;
     int y;
     int numBoom;

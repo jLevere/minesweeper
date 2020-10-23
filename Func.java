@@ -43,33 +43,31 @@ class Func {
   }
 
   /** randomly places mines in the matrix. The number of which is passed to it */
-  public String[][] boom(int numBoom, String[][] board) {
+  public void boom(int numBoom, String[][] board) {
 
     int x = board.length;
     int y = board[0].length;
     int count = 0;
 
-    // picks random entries and puts boom in until it has reached the number passed
+    // picks random entries and puts boom in until it has reached the number passed in
     while (count < numBoom) {
       board[rand(x - 1)][rand(y - 1)] = boom;
       count++;
     }
 
-    return board;
   }
 
   /**
    * fills the board with the letter 's' as a space filler to make reading it
    * easier
    */
-  public String[][] fillBoard(String[][] board) {
+  public void fillBoard(String[][] board) {
 
     for (int x = 0; x < board.length; x++) {
       for (int y = 0; y < board[x].length; y++) {
         board[x][y] = "s";
       }
     }
-    return board;
   }
 
   /**
@@ -114,7 +112,7 @@ class Func {
    * makes the final board, selecting which number goes in each tile based of the
    * booms
    */
-  public String[][] entryFinal(String[][] board) {
+  public void entryFinal(String[][] board) {
     // finds the size of the matrix
     int x = board.length;
     int y = board[0].length;
@@ -192,8 +190,5 @@ class Func {
 
       }
     }
-
-    return board;
   }
-
 }
