@@ -1,8 +1,8 @@
-Mine sweeper is a project I am working on while learning java.  
+Mine sweeper is a project I created while first learning java.  
 
-The goal is to generate and print a text matrix that can be pasted into a discord chat to play minesweeper using spoiler tags to cover the tiles.
+The goal was to generate and print a text matrix that could be pasted into a discord chat to play minesweeper using spoiler tags to cover the tiles.
 
-Known issues/things I am working on:
+Known issues:
 
   - The number of booms isnt always right. It doesnt check to see if an entry is already a mine and sometimes just overwrites them
   - Change the tile asignment loops to go from left to right insted of top to bottom for readablity 
